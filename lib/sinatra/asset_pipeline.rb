@@ -26,13 +26,14 @@ module Sinatra
 
         Sprockets::Helpers.configure do |config|
           config.environment = app.sprockets
-          config.digest = false
+          config.digest = app.assets_digest
         end
       end
 
       app.configure :staging, :production do
         Sprockets::Helpers.configure do |config|
           config.manifest = Sprockets::Manifest.new(app.sprockets, app.assets_path)
+          config.digest = false
         end
       end
 

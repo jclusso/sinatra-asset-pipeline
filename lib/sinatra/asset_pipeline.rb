@@ -37,7 +37,6 @@ module Sinatra
         Sprockets::Helpers.configure do |config|
           config.protocol = app.assets_protocol
           config.asset_host = app.assets_host unless app.assets_host.nil?
-          config.debug = true
         end
       end
 
